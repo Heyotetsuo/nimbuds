@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>The Official Home of Nimbuds</title>
+	<link rel="stylesheet" href="main.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		canvas {
+			padding: 0;
+			margin: auto;
+			display: block;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+	</style>
+</head>
+<body><canvas></canvas></body>
+<script>
+var data = {}, tokenData = {};
+function isReady( xhr ){ return (xhr.readyState===4 && xhr.status===200) }
+function getTokenData(){
+	var i = Math.floor( Math.random()*400 );
+	tokenData.id = i;
+	tokenData.hash = data.hashes[i];
+}
+function getHashes(){
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function(){
+		if ( isReady(xhr) ){
+			data = JSON.parse(xhr.response);
+			getTokenData();
+			main();
+		}
+	}
+	xhr.open("GET", "hashlist.json");
+	xhr.send();
+}
+document.body.addEventListener("keypress",function(e){
+	if (e.key==='x'){
+		// maybe do the xray?
+	}
+});
+getHashes();
+</script>
+<script src="main.js"></script>
+<script src="rarity.js"></script>
+</html>
