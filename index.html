@@ -5,24 +5,13 @@
 	<title>The Official Home of Nimbuds</title>
 	<link rel="stylesheet" href="main.css">
 	<link rel="shortcut icon" href="favicon.ico">
-	<style type="text/css">
-		body {
-			margin: 0;
-			padding: 0;
-		}
-		canvas {
-			padding: 0;
-			margin: auto;
-			display: block;
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-		}
-	</style>
 </head>
-<body><canvas></canvas></body>
+<body>
+	<div id="nav">
+		<a href="https://www.artblocks.io/project/10">artblocks</a>
+	</div>
+	<canvas></canvas>
+</body>
 <script>
 var data = {}, tokenData = {};
 function isReady( xhr ){ return (xhr.readyState===4 && xhr.status===200) }
